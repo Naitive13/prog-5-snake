@@ -5,15 +5,25 @@ import java.util.List;
 public class Body {
     private Position position;
     private boolean isHead;
+    private int id;
 
-    public Body(Position position, boolean isHead) {
+    public Body(Position position, boolean isHead, int id) {
         this.position = position;
         this.isHead = isHead;
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public static Body createFrom(Body body){
         var newPosition = new Position(body.getPositionX()-1, body.getPositionY());
-        return new Body(newPosition, false);
+        return new Body(newPosition, false, body.getId() +1);
 
     }
 

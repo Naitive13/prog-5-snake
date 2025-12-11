@@ -15,7 +15,7 @@ public class Game {
         while (true) {
             // Navigation
             if (System.in.available() > 0) {
-                var char = (char) System.in.read(); // Character
+                var c = (char) System.in.read(); // Character
                 if (c == 'a' && !d.equals("R")) d = "L";
                 else if (c == 'd' && !d.equals("L")) d = "R";
                 else if (c == 'w' && !d.equals("D")) d = "U";
