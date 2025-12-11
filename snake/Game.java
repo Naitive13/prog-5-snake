@@ -9,12 +9,13 @@ public class Game {
     private int score;
 
     public void startGame() throws IOException {
-        var snake = new Snake();
+        var snake = Snake.createSnake();
+        var food = Food.generateFood();
 
         while (true) {
             // Navigation
             if (System.in.available() > 0) {
-                char c = (char) System.in.read(); // Character
+                var char = (char) System.in.read(); // Character
                 if (c == 'a' && !d.equals("R")) d = "L";
                 else if (c == 'd' && !d.equals("L")) d = "R";
                 else if (c == 'w' && !d.equals("D")) d = "U";
