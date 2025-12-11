@@ -15,7 +15,7 @@ public class Snake {
     }
 
     public static Snake createSnake(){
-        var head = new Body(new Position(10,10), true);
+        var head = new Body(new Position(10,10), true, 1);
         var firstBody = Body.createFrom(head);
         var secondBody = Body.createFrom(firstBody);
         var body = List.of(head, firstBody, secondBody);
@@ -31,12 +31,13 @@ public class Snake {
         }
     }
 
-    public static int[] movement(int[] h, String d) {
-        int[] k = new int[]{h[0], h[1]};
-        if (d.equals("L")) k[1]--;
-        else if (d.equals("R")) k[1]++;
-        else if (d.equals("U")) k[0]--;
-        else if (d.equals("D")) k[0]++;
-        return k;
+    public void updateDirection(char key){
+        switch (key){
+            case 'd' -> this.direction = Direction.RIGHT;
+            case 'a' -> this.direction = Direction.LEFT;
+            case 'w' -> this.direction = Direction.UP;
+            case 's' -> this.direction = Direction.DOWN;
+        }
     }
+
 }
